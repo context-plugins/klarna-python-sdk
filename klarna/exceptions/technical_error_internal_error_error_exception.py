@@ -43,6 +43,10 @@ class TechnicalErrorInternalErrorErrorException(ApiException):
             dictionary.get("error_code")\
             if dictionary.get("error_code")\
                 else None
+        self.error_type =\
+            dictionary.get("error_type")\
+            if dictionary.get("error_type")\
+                else None
         self.error_message =\
             dictionary.get("error_message")\
             if dictionary.get("error_message")\

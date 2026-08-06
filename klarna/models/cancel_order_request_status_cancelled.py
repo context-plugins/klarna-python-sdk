@@ -11,7 +11,7 @@ class CancelOrderRequestStatusCancelled(object):
     """Implementation of the 'cancel_order_request_status_cancelled' model.
 
     Attributes:
-        status (str): The status of the order cancellation request.
+        status (Status2): The status of the order cancellation request.
         additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
@@ -24,10 +24,11 @@ class CancelOrderRequestStatusCancelled(object):
 
     def __init__(
         self,
+        status=None,
         additional_properties=None):
         """Initialize a CancelOrderRequestStatusCancelled instance."""
         # Initialize members of the class
-        self.status = "CANCELLED"
+        self.status = status
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -52,6 +53,10 @@ class CancelOrderRequestStatusCancelled(object):
             return None
 
         # Extract variables from the dictionary
+        status =\
+            dictionary.get("status")\
+            if dictionary.get("status")\
+                else None
 
         additional_properties = APIHelper.get_additional_properties(
             dictionary={k: v for k, v in dictionary.items()
@@ -59,7 +64,8 @@ class CancelOrderRequestStatusCancelled(object):
             unboxing_function=lambda value: value)
 
         # Return an object of this model
-        return cls(additional_properties)
+        return cls(status,
+                   additional_properties)
 
     def __repr__(self):
         """Return a unambiguous string representation."""

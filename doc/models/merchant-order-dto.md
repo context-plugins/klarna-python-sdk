@@ -38,7 +38,7 @@ Order
 | `selected_shipping_option` | [`SelectedShippingOptionDto`](../../doc/models/selected-shipping-option-dto.md) | Optional | The shipping option selected by the user. |
 | `shipping_address` | [`Address`](../../doc/models/address.md) | Optional | Shipping address for the capture. |
 | `shipping_info` | [`List[ShippingInfo]`](../../doc/models/shipping-info.md) | Optional | Shipping information for this order. |
-| `status` | [`Status2`](../../doc/models/status-2.md) | Optional | The order status. |
+| `status` | [`Status4`](../../doc/models/status-4.md) | Optional | The order status. |
 | `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
@@ -51,7 +51,7 @@ from klarna.models.address import Address
 from klarna.models.capture import Capture
 from klarna.models.customer import Customer
 from klarna.models.merchant_order_dto import MerchantOrderDto
-from klarna.models.status_2 import Status2
+from klarna.models.status_4 import Status4
 
 merchant_order_dto = MerchantOrderDto(
     billing_address=Address(
@@ -144,7 +144,7 @@ merchant_order_dto = MerchantOrderDto(
     purchase_currency='USD',
     refunded_amount=0,
     remaining_authorized_amount=0,
-    status=Status2.AUTHORIZED,
+    status=Status4.AUTHORIZED,
     additional_properties={
         'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
     }

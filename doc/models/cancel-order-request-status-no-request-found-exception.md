@@ -11,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `status` | `str` | Required, Constant | The status of the order cancellation request.<br><br>**Value**: `"NO_REQUEST_FOUND"` |
-| `reason_code` | `str` | Required, Constant | Reason code for the bad request.<br><br>**Value**: `"NO_REQUEST_FOUND"` |
+| `status` | [`Status3`](../../doc/models/status-3.md) | Required | The status of the order cancellation request. |
+| `reason_code` | [`ReasonCode1`](../../doc/models/reason-code-1.md) | Required | Reason code for the bad request. |
 | `reason_message` | `str` | Required | Human-readable message for the bad request. |
 | `additional_properties` | `Dict[str, Any]` | Optional | - |
 

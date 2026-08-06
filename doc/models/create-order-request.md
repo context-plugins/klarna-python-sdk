@@ -28,7 +28,7 @@
 | `purchase_country` | `str` | Required | The purchase country of the customer. The billing country always overrides purchase country if the values are different. Formatted according to ISO 3166 alpha-2 standard, e.g. GB, SE, DE, US, etc.<br><br>**Constraints**: *Pattern*: `^[A-Za-z]{2,2}$` |
 | `purchase_currency` | `str` | Required | The purchase currency of the order. Formatted according to ISO 4217 standard, e.g. USD, EUR, SEK, GBP, etc.<br><br>**Constraints**: *Pattern*: `^[A-Za-z]{3,3}$` |
 | `shipping_address` | [`Address1`](../../doc/models/address-1.md) | Optional | The shipping address of the consumer. Please note that this is not needed unless the customer has explicitly chosen to enter a separate shipping address. Otherwise the billing address will be automatically cloned. |
-| `status` | [`Status3`](../../doc/models/status-3.md) | Optional, Read-only | The current status of the session. Possible values: 'complete', 'incomplete' where 'complete' is set when the order has been placed. |
+| `status` | [`Status5`](../../doc/models/status-5.md) | Optional, Read-only | The current status of the session. Possible values: 'complete', 'incomplete' where 'complete' is set when the order has been placed. |
 | `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
@@ -41,7 +41,7 @@ from klarna.models.create_order_request import CreateOrderRequest
 from klarna.models.customer_1 import Customer1
 from klarna.models.order_line_1 import OrderLine1
 from klarna.models.product_identifiers import ProductIdentifiers
-from klarna.models.status_3 import Status3
+from klarna.models.status_5 import Status5
 from klarna.models.type_11 import Type11
 
 create_order_request = CreateOrderRequest(
@@ -108,7 +108,7 @@ create_order_request = CreateOrderRequest(
     merchant_reference_1='ON4711',
     merchant_reference_2='hdt53h-zdgg6-hdaff2',
     order_tax_amount=333,
-    status=Status3.COMPLETE,
+    status=Status5.COMPLETE,
     additional_properties={
         'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
     }

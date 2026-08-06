@@ -33,7 +33,7 @@
 | `purchase_country` | `str` | Required | The purchase country of the customer. The billing country always overrides purchase country if the values are different. Formatted according to ISO 3166 alpha-2 standard, e.g. GB, SE, DE, US, etc.<br><br>**Constraints**: *Pattern*: `^[A-Za-z]{2,2}$` |
 | `purchase_currency` | `str` | Required | The purchase currency of the order. Formatted according to ISO 4217 standard, e.g. USD, EUR, SEK, GBP, etc.<br><br>**Constraints**: *Pattern*: `^[A-Za-z]{3,3}$` |
 | `shipping_address` | [`Address1`](../../doc/models/address-1.md) | Optional | The shipping address of the consumer. Please note that this is not needed unless the customer has explicitly chosen to enter a separate shipping address. Otherwise the billing address will be automatically cloned. |
-| `status` | [`Status3`](../../doc/models/status-3.md) | Optional, Read-only | The current status of the session. Possible values: 'complete', 'incomplete' where 'complete' is set when the order has been placed. |
+| `status` | [`Status5`](../../doc/models/status-5.md) | Optional, Read-only | The current status of the session. Possible values: 'complete', 'incomplete' where 'complete' is set when the order has been placed. |
 | `intent` | [`Intent`](../../doc/models/intent.md) | Optional | Intent for the session. The field is designed to let partners inform Klarna of the purpose of the customer’s session. |
 | `step_up_id` | `str` | Optional | Step-up recovery identifier obtained from a failed token charge. Use this ID to create a recovery session for customer flow. |
 | `additional_properties` | `Dict[str, Any]` | Optional | - |
@@ -51,7 +51,7 @@ from klarna.models.intent import Intent
 from klarna.models.order_line_1 import OrderLine1
 from klarna.models.product_identifiers import ProductIdentifiers
 from klarna.models.session_create import SessionCreate
-from klarna.models.status_3 import Status3
+from klarna.models.status_5 import Status5
 from klarna.models.type_11 import Type11
 
 session_create = SessionCreate(
@@ -114,7 +114,7 @@ session_create = SessionCreate(
     merchant_reference_1='ON4711',
     merchant_reference_2='hdt53h-zdgg6-hdaff2',
     order_tax_amount=333,
-    status=Status3.COMPLETE,
+    status=Status5.COMPLETE,
     intent=Intent.BUY,
     additional_properties={
         'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')

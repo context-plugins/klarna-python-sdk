@@ -16,8 +16,8 @@ class InputErrorValidationError(object):
 
     Attributes:
         error_id (uuid|str): Unique error identifier
-        error_code (str): Error code within the error type
-        error_type (str): The type of error.
+        error_code (ErrorCode1): Error code within the error type
+        error_type (ErrorType1): The type of error.
         error_message (str): A human readable error message describing the error.
         doc_url (str): Link to Klarna docs describing how to use the API to avoid the
             error, or a more detailed explanation of why the error occurred. For a
@@ -48,6 +48,8 @@ class InputErrorValidationError(object):
     def __init__(
         self,
         error_id=None,
+        error_code=None,
+        error_type=None,
         error_message=None,
         doc_url=APIHelper.SKIP,
         validation_errors=APIHelper.SKIP,
@@ -55,8 +57,8 @@ class InputErrorValidationError(object):
         """Initialize a InputErrorValidationError instance."""
         # Initialize members of the class
         self.error_id = error_id
-        self.error_code = "VALIDATION_ERROR"
-        self.error_type = "INPUT_ERROR"
+        self.error_code = error_code
+        self.error_type = error_type
         self.error_message = error_message
         if doc_url is not APIHelper.SKIP:
             self.doc_url = doc_url
@@ -90,6 +92,14 @@ class InputErrorValidationError(object):
             dictionary.get("error_id")\
             if dictionary.get("error_id")\
                 else None
+        error_code =\
+            dictionary.get("error_code")\
+            if dictionary.get("error_code")\
+                else None
+        error_type =\
+            dictionary.get("error_type")\
+            if dictionary.get("error_type")\
+                else None
         error_message =\
             dictionary.get("error_message")\
             if dictionary.get("error_message")\
@@ -114,6 +124,8 @@ class InputErrorValidationError(object):
 
         # Return an object of this model
         return cls(error_id,
+                   error_code,
+                   error_type,
                    error_message,
                    doc_url,
                    validation_errors,

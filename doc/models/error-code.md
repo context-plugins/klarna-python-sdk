@@ -11,14 +11,13 @@ Error code within the error type
 
 | Name |
 |  --- |
-| `INTERNAL_ERROR` |
-| `SERVER_CONFIGURATION_ERROR` |
+| `RESOURCE_CONFLICT` |
 
 ## Example
 
 ```python
 from klarna.models.error_code import ErrorCode
 
-error_code = ErrorCode.INTERNAL_ERROR
+error_code = ErrorCode.RESOURCE_CONFLICT
 ```
 

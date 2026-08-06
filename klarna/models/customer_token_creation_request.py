@@ -17,7 +17,7 @@ class CustomerTokenCreationRequest(object):
             to this object will be ignored (without generating an error).
         customer (Customer1): Information about the liable customer of the order.
         description (str): Description of the purpose of the token.
-        intended_use (str): Intended use for the token.
+        intended_use (IntendedUse): Intended use for the token.
         locale (str): RFC 1766 customer's locale.
         purchase_country (str): ISO 3166 alpha-2 purchase country.
         purchase_currency (str): ISO 4217 purchase currency.
@@ -45,6 +45,7 @@ class CustomerTokenCreationRequest(object):
     def __init__(
         self,
         description=None,
+        intended_use=None,
         locale=None,
         purchase_country=None,
         purchase_currency=None,
@@ -58,7 +59,7 @@ class CustomerTokenCreationRequest(object):
         if customer is not APIHelper.SKIP:
             self.customer = customer
         self.description = description
-        self.intended_use = "SUBSCRIPTION"
+        self.intended_use = intended_use
         self.locale = locale
         self.purchase_country = purchase_country
         self.purchase_currency = purchase_currency
@@ -90,6 +91,10 @@ class CustomerTokenCreationRequest(object):
             dictionary.get("description")\
             if dictionary.get("description")\
                 else None
+        intended_use =\
+            dictionary.get("intended_use")\
+            if dictionary.get("intended_use")\
+                else None
         locale =\
             dictionary.get("locale")\
             if dictionary.get("locale")\
@@ -120,6 +125,7 @@ class CustomerTokenCreationRequest(object):
 
         # Return an object of this model
         return cls(description,
+                   intended_use,
                    locale,
                    purchase_country,
                    purchase_currency,

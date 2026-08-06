@@ -35,6 +35,14 @@ class CancelOrderRequestStatusNoRequestFoundException(ApiException):
             MUST match property names in the API description.
 
         """
+        self.status =\
+            dictionary.get("status")\
+            if dictionary.get("status")\
+                else None
+        self.reason_code =\
+            dictionary.get("reason_code")\
+            if dictionary.get("reason_code")\
+                else None
         self.reason_message =\
             dictionary.get("reason_message")\
             if dictionary.get("reason_message")\

@@ -935,6 +935,7 @@ authorization_token = 'authorizationToken4'
 
 body = CustomerTokenCreationRequest(
     description='description4',
+    intended_use=IntendedUse.SUBSCRIPTION,
     locale='en-US',
     purchase_country='US',
     purchase_currency='USD'

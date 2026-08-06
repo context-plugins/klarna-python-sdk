@@ -14,7 +14,7 @@
 | `billing_address` | [`Address1`](../../doc/models/address-1.md) | Optional | Once the customer has provided any data, updates to this object will be ignored (without generating an error). |
 | `customer` | [`Customer1`](../../doc/models/customer-1.md) | Optional | Information about the liable customer of the order. |
 | `description` | `str` | Required | Description of the purpose of the token.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255` |
-| `intended_use` | `str` | Required, Constant | Intended use for the token.<br><br>**Value**: `"SUBSCRIPTION"` |
+| `intended_use` | [`IntendedUse`](../../doc/models/intended-use.md) | Required | Intended use for the token. |
 | `locale` | `str` | Required | RFC 1766 customer's locale.<br><br>**Constraints**: *Pattern*: `^[A-Za-z]{2,2}(?:-[A-Za-z]{2,2})*$` |
 | `purchase_country` | `str` | Required | ISO 3166 alpha-2 purchase country.<br><br>**Constraints**: *Pattern*: `^[A-Za-z]{2,2}$` |
 | `purchase_currency` | `str` | Required | ISO 4217 purchase currency.<br><br>**Constraints**: *Pattern*: `^[A-Za-z]{3,3}$` |
@@ -28,9 +28,11 @@ import jsonpickle
 from klarna.models.address_1 import Address1
 from klarna.models.customer_1 import Customer1
 from klarna.models.customer_token_creation_request import CustomerTokenCreationRequest
+from klarna.models.intended_use import IntendedUse
 
 customer_token_creation_request = CustomerTokenCreationRequest(
     description='description0',
+    intended_use=IntendedUse.SUBSCRIPTION,
     locale='en-US',
     purchase_country='US',
     purchase_currency='USD',

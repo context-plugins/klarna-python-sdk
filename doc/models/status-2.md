@@ -1,7 +1,7 @@
 
 # Status 2
 
-The order status.
+The status of the order cancellation request.
 
 ## Enumeration
 
@@ -11,18 +11,13 @@ The order status.
 
 | Name |
 |  --- |
-| `AUTHORIZED` |
-| `PART_CAPTURED` |
-| `CAPTURED` |
 | `CANCELLED` |
-| `EXPIRED` |
-| `CLOSED` |
 
 ## Example
 
 ```python
 from klarna.models.status_2 import Status2
 
-status_2 = Status2.EXPIRED
+status_2 = Status2.CANCELLED
 ```
 

@@ -16,8 +16,8 @@ All requests from this client are temporarily rate limited.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `error_id` | `uuid\|str` | Required | Unique error identifier |
-| `error_code` | `str` | Required, Constant | Error code within the error type<br><br>**Value**: `"RATE_LIMITED"` |
-| `error_type` | `str` | Required, Constant | The type of error.<br><br>**Value**: `"ACCESS_ERROR"` |
+| `error_code` | [`ErrorCode6`](../../doc/models/error-code-6.md) | Required | Error code within the error type<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `64` |
+| `error_type` | [`ErrorType3`](../../doc/models/error-type-3.md) | Required | The type of error.<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `64` |
 | `error_message` | `str` | Required | A human readable error message describing the error.<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `2048` |
 | `doc_url` | `str` | Optional | Link to Klarna docs describing how to use the API to avoid the error, or a more detailed explanation of why the error occurred. For a parameter validation error the url should refer directly to the API specification of the parameter.<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `2048` |
 | `additional_properties` | `Dict[str, Any]` | Optional | - |

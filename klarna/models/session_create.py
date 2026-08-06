@@ -86,7 +86,7 @@ class SessionCreate(object):
             note that this is not needed unless the customer has explicitly chosen to
             enter a separate shipping address. Otherwise the billing address will be
             automatically cloned.
-        status (Status3): The current status of the session. Possible values:
+        status (Status5): The current status of the session. Possible values:
             'complete', 'incomplete' where 'complete' is set when the order has been
             placed.
         intent (Intent): Intent for the session. The field is designed to let

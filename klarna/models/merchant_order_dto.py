@@ -72,7 +72,7 @@ class MerchantOrderDto(object):
             selected by the user.
         shipping_address (Address): Shipping address for the capture.
         shipping_info (List[ShippingInfo]): Shipping information for this order.
-        status (Status2): The order status.
+        status (Status4): The order status.
         additional_properties (Dict[str, Any]): The additional properties for the
             model.
 

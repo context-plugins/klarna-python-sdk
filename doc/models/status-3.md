@@ -1,7 +1,7 @@
 
 # Status 3
 
-The current status of the session. Possible values: 'complete', 'incomplete' where 'complete' is set when the order has been placed.
+The status of the order cancellation request.
 
 ## Enumeration
 
@@ -11,14 +11,13 @@ The current status of the session. Possible values: 'complete', 'incomplete' whe
 
 | Name |
 |  --- |
-| `COMPLETE` |
-| `INCOMPLETE` |
+| `NO_REQUEST_FOUND` |
 
 ## Example
 
 ```python
 from klarna.models.status_3 import Status3
 
-status_3 = Status3.COMPLETE
+status_3 = Status3.NO_REQUEST_FOUND
 ```
 

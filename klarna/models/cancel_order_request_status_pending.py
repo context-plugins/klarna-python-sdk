@@ -11,7 +11,7 @@ class CancelOrderRequestStatusPending(object):
     """Implementation of the 'cancel_order_request_status_pending' model.
 
     Attributes:
-        status (str): The status of the order cancellation request.
+        status (Status11): The status of the order cancellation request.
         check_after (datetime): Timestamp for when we expect a decision to be made on
             order cancellation. (ISO 8601)
         additional_properties (Dict[str, Any]): The additional properties for the
@@ -27,11 +27,12 @@ class CancelOrderRequestStatusPending(object):
 
     def __init__(
         self,
+        status=None,
         check_after=None,
         additional_properties=None):
         """Initialize a CancelOrderRequestStatusPending instance."""
         # Initialize members of the class
-        self.status = "PENDING"
+        self.status = status
         self.check_after =\
              APIHelper.apply_datetime_converter(
             check_after, APIHelper.RFC3339DateTime)\
@@ -60,6 +61,10 @@ class CancelOrderRequestStatusPending(object):
             return None
 
         # Extract variables from the dictionary
+        status =\
+            dictionary.get("status")\
+            if dictionary.get("status")\
+                else None
         check_after = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("check_after")).datetime\
             if dictionary.get("check_after") else None
@@ -70,7 +75,8 @@ class CancelOrderRequestStatusPending(object):
             unboxing_function=lambda value: value)
 
         # Return an object of this model
-        return cls(check_after,
+        return cls(status,
+                   check_after,
                    additional_properties)
 
     def __repr__(self):

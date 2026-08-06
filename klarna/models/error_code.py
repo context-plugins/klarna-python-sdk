@@ -11,14 +11,11 @@ class ErrorCode(object):
     Error code within the error type
 
     Attributes:
-        INTERNAL_ERROR: The enum member of type str.
-        SERVER_CONFIGURATION_ERROR: The enum member of type str.
+        RESOURCE_CONFLICT: The enum member of type str.
 
     """
 
-    INTERNAL_ERROR = "INTERNAL_ERROR"
-
-    SERVER_CONFIGURATION_ERROR = "SERVER_CONFIGURATION_ERROR"
+    RESOURCE_CONFLICT = "RESOURCE_CONFLICT"
 
     @classmethod
     def from_value(cls, value, default=None):
